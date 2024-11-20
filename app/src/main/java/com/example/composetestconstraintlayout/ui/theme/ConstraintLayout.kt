@@ -29,16 +29,31 @@ fun MyConstraintLayout()
                 bottom.linkTo(parent.bottom)
             })
 
-        Box(modifier = Modifier.size(125.dp)
+        Box(modifier = Modifier.size(150.dp)
             .background(Color.Blue)
-            .constrainAs(ref = boxBlue){})
+            .constrainAs(ref = boxBlue)
+            {
+                bottom.linkTo(boxRed.top)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            })
 
-        Box(modifier = Modifier.size(125.dp)
+        Box(modifier = Modifier.size(100.dp)
             .background(Color.Yellow)
-            .constrainAs(ref = boxYellow){})
+            .constrainAs(ref = boxYellow)
+            {
+                top.linkTo(boxBlue.top)
+                bottom.linkTo(boxBlue.bottom)
+                end.linkTo(boxBlue.start)
+            })
 
         Box(modifier = Modifier.size(125.dp)
             .background(Color.Magenta)
-            .constrainAs(ref = boxMagenta){})
+            .constrainAs(ref = boxMagenta)
+            {
+                top.linkTo(boxBlue.top)
+                bottom.linkTo(boxRed.bottom)
+                start.linkTo(boxRed.end)
+            })
     }
 }
